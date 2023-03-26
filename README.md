@@ -38,4 +38,6 @@ pnpm add -D eslint-plugin-simple-import-sort
 pnpm add -D eslint-plugin-import
 # 未使用importや不足しているimportを追加してくれるプラグイン
 pnpm add -D eslint-plugin-unused-imports
+# ベンダープレフィックスを自動管理
+pnpm add -D autoprefixer
 ```
