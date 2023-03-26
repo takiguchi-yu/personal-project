@@ -19,7 +19,13 @@ const config = {
   parserOptions: {
     project: path.join(__dirname, "tsconfig.json"),
   },
-  plugins: ["@typescript-eslint", "sort-keys-custom-order"],
+  plugins: [
+    "@typescript-eslint",
+    "sort-keys-custom-order",
+    "simple-import-sort",
+    "import",
+    "unused-imports",
+  ],
   rules: {
     "@typescript-eslint/consistent-type-imports": [
       "warn",
@@ -29,11 +35,14 @@ const config = {
       },
     ],
     "@typescript-eslint/no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
-    // plugin: eslint-plugin-sort-keys-custom-order
-    "sort-keys-custom-order/import-object-keys": [
-      "error",
-      { orderedKeys: ["id", "name", "title"] },
-    ],
+    // import構文のLintingをサポート
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "import/no-duplicates": "error",
+    // import/exportを自動でソート
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error",
+    // objectやtypeを自動でソート
     "sort-keys-custom-order/object-keys": [
       "error",
       { orderedKeys: ["id", "name", "title"] },
@@ -42,6 +51,8 @@ const config = {
       "error",
       { orderedKeys: ["id", "name", "title"] },
     ],
+    // 未使用importを削除
+    "unused-imports/no-unused-imports": "error",
   },
 };
 

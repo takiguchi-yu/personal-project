@@ -32,4 +32,10 @@
 ```bash
 # typeやobjectのキーを自動でソートしてくれるプラグイン
 pnpm add -D eslint-plugin-sort-keys-custom-order
+# import/exportを自動でソートしてくれるプラグイン
+pnpm add -D eslint-plugin-simple-import-sort
+# import/export構文をLintingしてくれるプラグイン
+pnpm add -D eslint-plugin-import
+# 未使用importや不足しているimportを追加してくれるプラグイン
+pnpm add -D eslint-plugin-unused-imports
 ```
