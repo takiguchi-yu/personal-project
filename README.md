@@ -1,12 +1,12 @@
 # Create T3 App
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+これは、create-t3-app で起動された[T3 Stack](https://create.t3.gg/)プロジェクトである。
 
-## What's next? How do I make an app with this?
+## 次はどうする？これでアプリを作るにはどうしたらいい？
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+私たちは、このプロジェクトをできるだけシンプルに保つよう心がけています。私たちが用意した足場だけで始めて、必要になったときに後から追加することができます。
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+このプロジェクトで使われているさまざまな技術についてよく知らない場合は、それぞれのドキュメントを参照してください。
 
 - [Next.js](https://nextjs.org)
 - [NextAuth.js](https://next-auth.js.org)
@@ -14,15 +14,22 @@ If you are not familiar with the different technologies used in this project, pl
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
 
-## Learn More
+## 詳細はこちら
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+[T3 Stack](https://create.t3.gg/)の詳細については、以下のリソースを参照してください。
 
 - [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — これらの素晴らしいチュートリアルをチェックしてください。
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+[create-t3-app GitHub リポジトリ](https://github.com/t3-oss/create-t3-app)をチェックしてみてください。あなたのフィードバックや貢献を歓迎します！
 
-## How do I deploy this?
+## どうやってデプロイすればいい？
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+[Vercel](https://create.t3.gg/en/deployment/vercel)、[Netlify](https://create.t3.gg/en/deployment/netlify)、[Docker](https://create.t3.gg/en/deployment/docker)のデプロイガイドに従ってください。
+
+## 初期セットアップ
+
+```bash
+# typeやobjectのキーを自動でソートしてくれるプラグイン
+pnpm add -D eslint-plugin-sort-keys-custom-order
+```

@@ -17,6 +17,7 @@ specifiers:
   autoprefixer: ^10.4.7
   eslint: ^8.34.0
   eslint-config-next: ^13.2.1
+  eslint-plugin-sort-keys-custom-order: ^1.0.5
   next: ^13.2.1
   postcss: ^8.4.14
   prettier: ^2.8.1
@@ -53,6 +54,7 @@ devDependencies:
   autoprefixer: 10.4.14_postcss@8.4.21
   eslint: 8.36.0
   eslint-config-next: 13.2.4_vgl77cfdswitgr47lm5swmv43m
+  eslint-plugin-sort-keys-custom-order: 1.0.5_eslint@8.36.0
   postcss: 8.4.21
   prettier: 2.8.6
   prettier-plugin-tailwindcss: 0.2.5_prettier@2.8.6
@@ -1246,6 +1248,15 @@ packages:
       resolve: 2.0.0-next.4
       semver: 6.3.0
       string.prototype.matchall: 4.0.8
+    dev: true
+
+  /eslint-plugin-sort-keys-custom-order/1.0.5_eslint@8.36.0:
+    resolution: {integrity: sha512-WdZjCY/nyOjr4GnMvQTiH225sQ0+LvmoZBB7cPkSvhbx7FxKCk3pwn8UTKquSdSRsvPiM2qoUvIOPDAEdOJdkA==}
+    engines: {node: '>=0.10.0'}
+    peerDependencies:
+      eslint: ^8.28.0
+    dependencies:
+      eslint: 8.36.0
     dev: true
 
   /eslint-scope/5.1.1:
