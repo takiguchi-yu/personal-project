@@ -41,3 +41,48 @@ pnpm add -D eslint-plugin-unused-imports
 # ベンダープレフィックスを自動管理
 pnpm add -D autoprefixer
 ```
+
+## trpc + prisma のファイルごとのリレーション
+
+```mermaid
+graph TB %% トップダウン（上から下に描画する）
+
+%% 宣言(登場人物)
+A[utils/api.ts]
+B[pages/index.tsx<br>pages/_app.ts]
+D[画面]
+E["pages/api/trpc/[trpc].ts"]
+F[server/api/root.ts]
+G["server/api/routers/*.ts"]
+H[server/db.ts]
+I["@prisma/client"]
+J["@trpc/client"]
+K["@trpc/server"]
+L[zod]
+M[DB]
+N[server/api/trpc.ts]
+
+%% リレーション
+A --import--> B
+D --localhost:3000--> B
+B --hooks: /api/trpc/example.getAll--> E
+F --import--> E
+N --import--> E
+F --import--> A
+J --import--> A
+K --import--> A
+N --import--> G
+G --query--> M
+L --import--> G
+H --import--> N
+I --import--> H
+N --import--> F
+```
+
+## API(hooks)
+
+### すべてのプロジェクトを取得
+
+```
+GET http://localhost:3000/api/trpc/project.getProjects?batch=1&input={"0":{"json":{"page":1, "limit": 10}}}
+```
