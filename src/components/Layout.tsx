@@ -17,13 +17,13 @@ export default function Layout(props: PropsWithChildren<Props>) {
         <meta name="description" content={props.description} />
         <meta property="og:title" content={props.title} />
         <meta property="og:description" content={props.description} />
-        <meta property="og:image" content="https://mywebsite.com/image.jpg" />
-        <meta property="og:image:alt" content="画像の説明文" />
+        <meta property="og:image" content="/ogp.png" />
+        <meta property="og:image:alt" content={props.description} />
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:url" content="https://mywebsite.com/page" />
-        <link rel="canonical" href="https://mywebsite.com/page" />
+        <meta property="og:url" content="/" />
+        <link rel="canonical" href="/" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {/* <link rel="manifest" href="/my.webmanifest" /> */}

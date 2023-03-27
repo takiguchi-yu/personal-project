@@ -55,7 +55,7 @@ const Hero = () => {
           autoPlay
           playsInline
         ><source
-            src='https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-programmer-working-on-a-desk-41652-large.mp4'
+            src='/mixkit-hands-of-a-programmer-working-on-a-desk-41652-large.mp4'
             type='video/mp4'
           />
         </video>
