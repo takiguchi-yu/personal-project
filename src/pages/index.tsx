@@ -3,7 +3,9 @@ import Head from "next/head";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
+  const projects = api.project.getProjects.useQuery({ page: 1, limit: 10 });
+  console.log(projects.data);
+
 
   return (
     <>
