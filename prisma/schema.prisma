@@ -15,3 +15,16 @@ model Example {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
+
+// 個人開発テーブル
+model Project {
+    id String @id @default(cuid())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    name String // サービス名
+    url String // サービスURL
+    published Boolean @default(false) // 公開フラグ(true: 公開, false: 非公開)
+    thumbnail String // サムネイルのURL
+
+    @@map(name: "projects")
+}
