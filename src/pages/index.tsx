@@ -1,11 +1,23 @@
 import { type NextPage } from "next";
 import Head from "next/head";
+import { format, parseISO } from "date-fns";
+import { toast } from "react-toastify";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
-  const projects = api.project.getProjects.useQuery({ page: 1, limit: 10 });
-  console.log(projects.data);
-
+  const { data: projects } = api.project.getProjects.useQuery(
+    { page: 1, limit: 10 },
+    {
+      staleTime: 5 * 1000,
+      select: (data) => data.projects,
+      onError(err) {
+        toast(err.message, {
+          type: "error",
+          position: "top-right"
+        });
+      },
+    }
+  );
 
   return (
     <>
@@ -20,16 +32,21 @@ const Home: NextPage = () => {
             <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">すべて</h1>
 
             <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-              <div className="lg:flex">
-                <img className="object-cover w-full h-56 rounded-lg lg:w-64" src="https://images.unsplash.com/photo-1515378960530-7c0da6231fb1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="" />
 
-                <div className="flex flex-col justify-between py-6 lg:mx-6">
-                  <a href="#" className="text-xl font-semibold text-gray-800 hover:underline dark:text-white">How to use sticky note for problem solving</a>
+              {projects?.map((project) => (
+                <div key={project.id} className="lg:flex">
+                  <img className="object-cover w-full h-56 rounded-lg lg:w-64" src={project.thumbnail} alt={project.name} />
 
-                  <span className="text-sm text-gray-500 dark:text-gray-300">On: 20 October 2019</span>
+                  <div className="flex flex-col justify-between py-6 lg:mx-6">
+                    <a href="#" className="text-xl font-semibold text-gray-800 hover:underline dark:text-white">{project.name}</a>
+
+                    <span className="text-sm text-gray-500 dark:text-gray-300">{format(parseISO(project.createdAt.toISOString()), "PPP")}</span>
+                  </div>
                 </div>
-              </div>
+              ))}
+
             </div>
+
           </div>
         </section>
       </main>
