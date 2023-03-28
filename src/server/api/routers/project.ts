@@ -6,8 +6,8 @@ export const projectRouter = createTRPCRouter({
   getProjects: publicProcedure
     .input(
       z.object({
-        page: z.number().default(10),
         limit: z.number().default(1),
+        page: z.number().default(10),
       })
     )
     .query(async ({ ctx, input }) => {
@@ -17,20 +17,20 @@ export const projectRouter = createTRPCRouter({
         const skip = (page - 1) * limit;
 
         const projects = await ctx.prisma.project.findMany({
+          orderBy: {
+            updatedAt: "desc",
+          },
           skip,
           take: limit,
           where: {
             published: true,
           },
-          orderBy: {
-            updatedAt: "desc",
-          },
         });
 
         return {
-          status: "success",
-          results: projects.length,
           projects,
+          results: projects.length,
+          status: "success",
         };
       } catch (error) {
         throw error;

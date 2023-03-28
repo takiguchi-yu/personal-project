@@ -18,5 +18,13 @@ const config = {
     locales: ["ja"],
     defaultLocale: "ja",
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*",
+      },
+    ],
+  },
 };
 export default config;

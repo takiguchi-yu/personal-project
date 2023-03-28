@@ -21,12 +21,6 @@ const getBaseUrl = () => {
 export const api = createTRPCNext<AppRouter>({
   config() {
     return {
-      /**
-       * Transformer used for data de-serialization from the server.
-       *
-       * @see https://trpc.io/docs/data-transformers
-       */
-      transformer: superjson,
 
       /**
        * Links used to determine request flow from client to server.
@@ -43,6 +37,12 @@ export const api = createTRPCNext<AppRouter>({
           url: `${getBaseUrl()}/api/trpc`,
         }),
       ],
+      /**
+       * Transformer used for data de-serialization from the server.
+       *
+       * @see https://trpc.io/docs/data-transformers
+       */
+      transformer: superjson,
     };
   },
   /**

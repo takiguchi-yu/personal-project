@@ -1,7 +1,7 @@
-import { PropsWithChildren } from "react";
 import Head from "next/head";
-import Header from "src/components/Header";
+import { type PropsWithChildren } from "react";
 import Footer from "src/components/Footer";
+import Header from "src/components/Header";
 
 interface Props {
   title?: string,

@@ -1,21 +1,24 @@
-import { type NextPage } from "next";
-import Layout from "src/components/Layout";
 import { format, parseISO } from "date-fns";
+import { type NextPage } from "next";
+import Image from 'next/image'
+import Link from "next/link";
 import { toast } from "react-toastify";
+import Layout from "src/components/Layout";
+
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
   const { data: projects } = api.project.getProjects.useQuery(
-    { page: 1, limit: 10 },
+    { limit: 10, page: 1 },
     {
-      staleTime: 5 * 1000,
-      select: (data) => data.projects,
       onError(err) {
         toast(err.message, {
+          position: "top-right",
           type: "error",
-          position: "top-right"
         });
       },
+      select: (data) => data.projects,
+      staleTime: 5 * 1000,
     }
   );
 
@@ -28,13 +31,18 @@ const Home: NextPage = () => {
           <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
             {projects?.map((project) => (
               <div key={project.id} className="lg:flex">
-                <a href={project.url} target="_blank" rel="noopener noreferrer">
-                  < img className="object-cover w-full h-56 rounded-lg lg:w-64" src={project.thumbnail} alt={project.name} />
-                </a>
+
+                <div className="relative w-full h-56 lg:w-64 shrink-0">
+                  <Link href={project.url} target="_blank" rel="noopener noreferrer" className="">
+                    <Image fill className="object-cover rounded-lg" src={project.thumbnail} alt={project.name} />
+                  </Link>
+                </div>
+
                 <div className="flex flex-col justify-between py-6 lg:mx-6">
-                  <a href={project.url} target="_blank" rel="noopener noreferrer" className="text-xl font-semibold text-gray-800 hover:underline dark:text-white">{project.name}</a>
+                  <Link href={project.url} target="_blank" rel="noopener noreferrer" className="text-xl font-semibold text-gray-800 hover:underline dark:text-white">{project.name}</Link>
                   <span className="text-sm text-gray-500 dark:text-gray-300">{format(parseISO(project.createdAt.toISOString()), "PPP")}</span>
                 </div>
+
               </div>
             ))}
           </div>
@@ -55,7 +63,7 @@ const Hero = () => {
           autoPlay
           playsInline
         ><source
-            src='/mixkit-hands-of-a-programmer-working-on-a-desk-41652-large.mp4'
+            src='/mixkit-hands-of-a-programmer-working-on-a-desk-41652-medium.mp4'
             type='video/mp4'
           />
         </video>
