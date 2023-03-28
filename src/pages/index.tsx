@@ -23,7 +23,7 @@ const Home: NextPage = () => {
   );
 
   return (
-    <Layout title="世の中の個人開発を紹介するメディア" description="世の中の個人開発を紹介するメディアです">
+    <Layout title="世の中の個人開発を紹介するメディア">
       <Hero />
       <section className="flex flex-col items-center justify-center">
         <div className="container px-6 py-10 mx-auto">

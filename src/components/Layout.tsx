@@ -5,7 +5,6 @@ import Header from "src/components/Header";
 
 interface Props {
   title?: string,
-  description?: string,
 }
 
 export default function Layout(props: PropsWithChildren<Props>) {
@@ -14,16 +13,16 @@ export default function Layout(props: PropsWithChildren<Props>) {
       <Head>
         <title>{props.title}</title>
         <meta name="viewport" content="width=device-width" />
-        <meta name="description" content={props.description} />
+        <meta name="description" content="世の中の個人開発を紹介するメディアです。独自に見つけた良さげな個人開発を独断と偏見と勝手に掲載しています。" />
         <meta property="og:title" content={props.title} />
-        <meta property="og:description" content={props.description} />
-        <meta property="og:image" content="/ogp.png" />
-        <meta property="og:image:alt" content={props.description} />
+        <meta property="og:description" content="世の中の個人開発を紹介するメディアです。独自に見つけた良さげな個人開発を独断と偏見と勝手に掲載しています。" />
+        <meta property="og:image" content="https://personal-project-eta.vercel.app/ogp.png" />
+        <meta property="og:image:alt" content="世の中の個人開発を紹介するメディアです。独自に見つけた良さげな個人開発を独断と偏見と勝手に掲載しています。" />
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:url" content="/" />
-        <link rel="canonical" href="/" />
+        <meta property="og:url" content="https://personal-project-eta.vercel.app" />
+        <link rel="canonical" href="https://personal-project-eta.vercel.app" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {/* <link rel="manifest" href="/my.webmanifest" /> */}
