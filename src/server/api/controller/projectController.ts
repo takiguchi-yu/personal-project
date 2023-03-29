@@ -1,13 +1,16 @@
 import { Prisma } from "@prisma/client";
 import { TRPCError } from "@trpc/server";
 
-import { type CreateProjectSchema } from "~/server/api/schema/projectShema";
+import {
+  type CreateProjectInput,
+  type FilterQueryInput,
+} from "~/server/api/schema/projectShema";
 import { prisma } from "~/server/db";
 
 export const createProjectController = async ({
   input,
 }: {
-  input: CreateProjectSchema;
+  input: CreateProjectInput;
 }) => {
   try {
     const project = await prisma.project.create({
@@ -34,6 +37,37 @@ export const createProjectController = async ({
         });
       }
     }
+    throw error;
+  }
+};
+
+export const findAllProjectsController = async ({
+  input,
+}: {
+  input: FilterQueryInput;
+}) => {
+  try {
+    const page = input.page || 1;
+    const limit = input.limit || 10;
+    const skip = (page - 1) * limit;
+
+    const projects = await prisma.project.findMany({
+      orderBy: {
+        updatedAt: "desc",
+      },
+      skip,
+      take: limit,
+      where: {
+        published: true,
+      },
+    });
+
+    return {
+      projects,
+      results: projects.length,
+      status: "success",
+    };
+  } catch (error) {
     throw error;
   }
 };
