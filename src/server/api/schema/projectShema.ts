@@ -13,4 +13,10 @@ export const createProjectSchema = z.object({
   }),
 });
 
-export type CreateProjectSchema = z.TypeOf<typeof createProjectSchema>;
+export const filterQuery = z.object({
+  limit: z.number().default(1),
+  page: z.number().default(10),
+});
+
+export type CreateProjectInput = z.TypeOf<typeof createProjectSchema>;
+export type FilterQueryInput = z.TypeOf<typeof filterQuery>;
