@@ -83,8 +83,23 @@ N --import--> F
 
 ### すべてのプロジェクトを取得
 
-```
+```bash
+# データ参照
 GET http://localhost:3000/api/trpc/project.getProjects?batch=1&input={"0":{"json":{"page":1, "limit": 10}}}
+
+# データ挿入
+POST http://localhost:3000/api/trpc/project.createProject?batch=1
+{
+    "0": {
+        "json": {
+            "name": "テスト",
+            "url": "https://www.google.com",
+            "thumbnail": "https://www.google.com/samune",
+            "published": false
+        }
+    }
+}
+
 ```
 
 ## 動く URL
