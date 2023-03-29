@@ -5,6 +5,7 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import Layout from "src/components/Layout";
 
+import { type ProjectType } from "~/types/project";
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {
@@ -29,7 +30,7 @@ const Home: NextPage = () => {
         <div className="container px-6 py-10 mx-auto">
           <h1 className="text-3xl text-gray-800 capitalize lg:text-4xl dark:text-white">すべて表示</h1>
           <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
-            {projects?.map((project) => (
+            {projects?.map((project: ProjectType) => (
               <div key={project.id} className="lg:flex">
 
                 <div className="relative w-full h-56 lg:w-64 shrink-0">
