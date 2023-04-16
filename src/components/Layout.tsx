@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { type PropsWithChildren } from "react";
 import Footer from "src/components/Footer";
-import Header from "src/components/Header";
 
 interface Props {
   title?: string,
@@ -13,11 +12,11 @@ export default function Layout(props: PropsWithChildren<Props>) {
       <Head>
         <title>{props.title}</title>
         <meta name="viewport" content="width=device-width" />
-        <meta name="description" content="世の中の個人開発を紹介するメディアです。独自に見つけた良さげな個人開発を独断と偏見と勝手に掲載しています。" />
+        <meta name="description" content="世の中の個人開発を紹介するメディアです。独自に見つけた良さげな個人開発を独断と偏見で勝手に掲載しています。" />
         <meta property="og:title" content={props.title} />
-        <meta property="og:description" content="世の中の個人開発を紹介するメディアです。独自に見つけた良さげな個人開発を独断と偏見と勝手に掲載しています。" />
+        <meta property="og:description" content="世の中の個人開発を紹介するメディアです。独自に見つけた良さげな個人開発を独断と偏見で勝手に掲載しています。" />
         <meta property="og:image" content="https://personal-project-eta.vercel.app/ogp.png" />
-        <meta property="og:image:alt" content="世の中の個人開発を紹介するメディアです。独自に見つけた良さげな個人開発を独断と偏見と勝手に掲載しています。" />
+        <meta property="og:image:alt" content="世の中の個人開発を紹介するメディアです。独自に見つけた良さげな個人開発を独断と偏見で勝手に掲載しています。" />
         <meta property="og:locale" content="ja_JP" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -29,7 +28,6 @@ export default function Layout(props: PropsWithChildren<Props>) {
         <meta name="theme-color" content="#2e026d" />
       </Head>
 
-      <Header />
       <main>{props.children}</main>
       <Footer />
     </>

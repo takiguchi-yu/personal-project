@@ -85,7 +85,7 @@ const Hero = () => {
       </div>
       <div className='z-10 text-center px-8'>
         <div className='text-4xl font-medium dark:text-white'>
-          世の中の <span className='text-link'>#個人開発</span> を紹介するメディアです
+          世の中の個人開発を紹介するメディアです
         </div>
       </div>
     </section>
