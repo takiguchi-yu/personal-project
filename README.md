@@ -105,3 +105,22 @@ POST http://localhost:3000/api/trpc/project.createProject?batch=1
 ## 動く URL
 
 https://personal-project-eta.vercel.app/
+
+## ローカル開発環境
+
+### DB を起動する
+
+```
+cd {YOUR_WORKSPACE}/
+docker compose up
+```
+
+### ローカルサーバーを起動する
+
+```bash
+npm run dev
+```
+
+### 画面を開く
+
+http://localhost:3000
