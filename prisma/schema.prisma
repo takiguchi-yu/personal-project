@@ -19,6 +19,8 @@ model Project {
     url String // サービスURL
     published Boolean @default(false) // 公開フラグ(true: 公開, false: 非公開)
     thumbnail String // サムネイルのURL
+    qiita String? // Qiita URL
+    zenn String? // Zenn URL
 
     @@map(name: "projects")
 }
