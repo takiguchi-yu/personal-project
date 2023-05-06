@@ -52,9 +52,17 @@ const Home: NextPage = () => {
                       <Image fill className="object-cover rounded-lg" src={project.thumbnail} alt={project.name} />
                     </Link>
                   </div>
-                  <div className="flex flex-col justify-between py-6 lg:mx-6">
+                  <div className="flex flex-col justify-between py-6 w-full lg:mx-6">
                     <Link href={project.url} target="_blank" rel="noopener noreferrer" className="text-xl font-semibold text-gray-800 hover:underline dark:text-white">{project.name}</Link>
                     <span className="text-sm text-gray-500 dark:text-gray-300">{format(parseISO(project.createdAt.toISOString()), "PPP")}</span>
+                    <div className='flex justify-end gap-4 py-2'>
+                      {project.qiita && <Link href={project.qiita} target="_blank" rel="noopener noreferrer">
+                        <Image height={24} width={24} src='/logo-qiita.png' alt='Qiita logo' />
+                      </Link>}
+                      {project.zenn && <Link href={project.zenn} target="_blank" rel="noopener noreferrer">
+                        <Image height={24} width={24} src='/logo-zenn.png' alt='Zenn logo' />
+                      </Link>}
+                    </div>
                   </div>
                 </div>
               )))
@@ -108,7 +116,7 @@ const SkeletonProject = () => {
     ));
 
   return (
-    <SkeletonTheme baseColor='#a2a2a2' highlightColor='#ffffff'>
+    <SkeletonTheme baseColor='#d1d1d1' highlightColor='#ffffff'>
       {rows}
     </SkeletonTheme>
   );
