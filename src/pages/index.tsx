@@ -9,7 +9,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { toast } from "react-toastify";
 import Layout from "src/components/Layout";
 
-import { type ProjectType } from "~/types/project";
+import { type ProjectType } from '~/types/project';
 import { api } from "~/utils/api";
 
 const Home: NextPage = () => {

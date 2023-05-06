@@ -3,9 +3,9 @@ export type ProjectType = {
   name: string;
   createdAt: Date;
   published: boolean;
-  qiita?: string;
+  qiita: string | null;
   thumbnail: string;
   updatedAt: Date;
   url: string;
-  zenn?: string;
+  zenn: string | null;
 };

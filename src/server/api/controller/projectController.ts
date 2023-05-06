@@ -17,8 +17,10 @@ export const createProjectController = async ({
       data: {
         name: input.name,
         published: input.published,
+        qiita: input.qiita,
         thumbnail: input.thumbnail,
         url: input.url,
+        zenn: input.zenn,
       },
     });
 
@@ -41,12 +43,16 @@ export const createProjectController = async ({
   }
 };
 
+const delay = (ms: number | undefined) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
 export const findAllProjectsController = async ({
   input,
 }: {
   input: FilterQueryInput;
 }) => {
   try {
+    // await delay(500);
     const page = input.page || 1;
     const limit = input.limit || 10;
     const skip = (page - 1) * limit;
